@@ -5,9 +5,9 @@
   "author": "Harsha Narayana <harsha2k4@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "npm run build && npm run serve",
+    "start": "npm run serve",
     "build": "npm run build-ts && npm run tslint",
-    "serve": "npm run build && node dist/src/server.js",
+    "serve": "node dist/src/server.js",
     "watch-node": "nodemon dist/src/server.js",
     "watch":
       "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
@@ -22,7 +22,7 @@
     "serve-debug": "nodemon --inspect dist/src/server.js",
     "watch-debug":
       "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\"",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build && knex migrate:latest"
   },
   "dependencies": {
     "@types/bookshelf": "^0.9.8",
