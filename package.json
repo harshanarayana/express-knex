@@ -21,7 +21,8 @@
     "debug": "npm run build && npm run watch-debug",
     "serve-debug": "nodemon --inspect dist/src/server.js",
     "watch-debug":
-      "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+      "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\"",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@types/bookshelf": "^0.9.8",
@@ -55,11 +56,10 @@
     "sqlite3": "^4.0.0",
     "ts-node": "^6.0.5",
     "tsconfig-paths": "^3.3.2",
+    "tslint": "^5.10.0",
     "typed-rest-client": "^1.0.7",
     "typings": "^2.1.1",
-    "winston": "^2.4.2"
-  },
-  "devDependencies": {
+    "winston": "^2.4.2",
     "@types/body-parser": "1.16.8",
     "@types/cookie-parser": "^1.4.1",
     "@types/errorhandler": "0.0.32",
