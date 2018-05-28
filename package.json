@@ -5,9 +5,9 @@
   "author": "Harsha Narayana <harsha2k4@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "npm eun build && npm run serve",
+    "start": "npm run build && npm run serve",
     "build": "npm run build-ts && npm run tslint",
-    "serve": "npm eun build && node dist/src/server.js",
+    "serve": "npm run build && node dist/src/server.js",
     "watch-node": "nodemon dist/src/server.js",
     "watch":
       "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
