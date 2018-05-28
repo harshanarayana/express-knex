@@ -5,20 +5,23 @@
   "author": "Harsha Narayana <harsha2k4@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "npm run serve",
+    "start": "npm eun build && npm run serve",
     "build": "npm run build-ts && npm run tslint",
-    "serve": "node dist/src/server.js",
+    "serve": "npm eun build && node dist/src/server.js",
     "watch-node": "nodemon dist/src/server.js",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch":
+      "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
     "test": "mocha -r ts-node/register test/**/*.ts",
-    "test:coverage": "nyc --reporter=html --reporter=text mocha -r ts-node/register test/**/*.ts",
+    "test:coverage":
+      "nyc --reporter=html --reporter=text mocha -r ts-node/register test/**/*.ts",
     "watch-test": "npm run test -- --watchAll",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "debug": "npm run build && npm run watch-debug",
     "serve-debug": "nodemon --inspect dist/src/server.js",
-    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+    "watch-debug":
+      "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
   "dependencies": {
     "@types/bookshelf": "^0.9.8",
@@ -69,10 +72,7 @@
     "typescript": "^2.7.2"
   },
   "nyc": {
-    "include": [
-      "src/**/*.{js,ts,tsx}",
-      "config/*.{js,ts,tsx}"
-    ],
+    "include": ["src/**/*.{js,ts,tsx}", "config/*.{js,ts,tsx}"],
     "exclude": [
       "**/node_modules/**",
       "src/**/*.d.ts",
@@ -80,19 +80,9 @@
       "src/model/*",
       "src/routes"
     ],
-    "extension": [
-      ".js",
-      ".ts",
-      ".tsx"
-    ],
-    "require": [
-      "source-map-support/register",
-      "ts-node/register"
-    ],
-    "reporter": [
-      "text",
-      "html"
-    ],
+    "extension": [".js", ".ts", ".tsx"],
+    "require": ["source-map-support/register", "ts-node/register"],
+    "reporter": ["text", "html"],
     "produceSourceMap": true,
     "sourceMap": true,
     "instrument": true,
