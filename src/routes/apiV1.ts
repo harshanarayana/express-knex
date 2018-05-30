@@ -7,7 +7,7 @@ export const apiV1Routes = express.Router();
 
 apiV1Routes
   .get("", apiController.getApi)
-  .get("/users", fastCheck, apiController.getAllUsers)
+  .get("/users", apiController.getAllUsers)
   .get("/users/email/:email", fastCheck, apiController.getUser)
   .get("/users/id/:id", fastCheck, apiController.getUserById)
   .post("/users", fastCheck, apiController.createUser)
